@@ -28,7 +28,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
         buf.readBytes(req);
         String body = new String(req, "UTF-8");
         System.out.println("Server received: " + body);
-        ctx.writeAndFlush(msg);
+        ctx.writeAndFlush(Unpooled.copiedBuffer("Server received: " + body, CharsetUtil.UTF_8));
     }
 
     @Override
