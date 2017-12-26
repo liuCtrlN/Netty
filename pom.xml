@@ -6,7 +6,11 @@
 
     <groupId>con.liuxl</groupId>
     <artifactId>Netty</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>example</module>
+    </modules>
 
 
 </project>
