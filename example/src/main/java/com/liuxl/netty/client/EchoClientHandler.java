@@ -13,6 +13,14 @@ import io.netty.util.CharsetUtil;
  * channelActive():客户端连接服务器后被调用
  * channelRead0():从服务器接收到数据后调用
  * exceptionCaught():发生异常时被调用
+ *
+ * 在这里使用的是SimpleChannelInboundHandler而不使用ChannelInboundHandlerAdapter?
+ * 主要原因是 ChannelInboundHandlerAdapter在处理完消息后需要负责释放资源。
+ * 在这里将调用ByteBuf.release()来释放资源。
+ * SimpleChannelInboundHandler会在 完成channelRead0后释放消息，
+ * 这是通过Netty处理所有消息的ChannelHandler实现了ReferenceCounted接口达到的。
+ * 为什么在服务器中不使用SimpleChannelInboundHandler呢?因为服务器要返回相同的消息给客户端，
+ * 在服务器执行完成写操作之前不能释放调用读取到的消息，因为写操作是异步的，一旦写操作完成后，Netty中会自动释放消息
  * @author liuxl
  * @date 2017/12/26
  */
