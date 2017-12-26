@@ -49,4 +49,13 @@ public class NettyNioServer {
             group.shutdownGracefully();
         }
     }
+
+    public static void main(String[] args) {
+        NettyNioServer nioServer = new NettyNioServer();
+        try {
+            nioServer.server(8081);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
