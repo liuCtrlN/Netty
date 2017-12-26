@@ -11,6 +11,9 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
  * Netty使用多个Channel Handler来达到对事件处理的分离，
  * 因为可以很容的添加、更新、删除业务逻辑处理handler。Handler很简单，
  * 它的每个方法都可以被重写，它的所有的方法中只有channelRead方法是必须要重写的。
+ * channelReadComplete 当Channel上的某个读操作完成时被调用--还是有点不明白后期再理解
+ * channelRead 当从Channel中读数据时被调用
+ * exceptionCaught 处理过程中ChannelPipeline中发生错误时被调用
  * @author liuxl
  * @date 2017/12/26
  */
