@@ -2,3 +2,6 @@
 /.idea/
 /Netty.iml
 /example/example.iml
+/transports/transports.iml
+/thrift/thrift.iml
+/nettyService/nettyService.iml
